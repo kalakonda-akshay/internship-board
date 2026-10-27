@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternHub – Responsive Internship Board</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="#" class="logo">Intern<span>Hub</span></a>
+      <button id="filterToggle" class="btn btn-ghost mobile-only" aria-expanded="false" aria-controls="filters">☰ Filters</button>
+      <button id="savedBtn" class="btn btn-ghost">♥ Saved (<span id="savedCount">0</span>)</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Find your next internship</h1>
+      <p>Browse openings, filter by what matters to you, and save the ones you like.</p>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Search by role, company or skill…" aria-label="Search internships" />
+      </div>
+    </div>
+  </section>
+
+  <main class="container layout">
+    <aside id="filters" class="filters" aria-label="Filters">
+      <div class="filter-group">
+        <label for="category">Category</label>
+        <select id="category"></select>
+      </div>
+      <div class="filter-group">
+        <label for="mode">Work mode</label>
+        <select id="mode">
+          <option value="">All</option>
+          <option>Remote</option>
+          <option>Hybrid</option>
+          <option>On-site</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="duration">Max duration: <span id="durLabel">6</span> months</label>
+        <input id="duration" type="range" min="1" max="6" value="6" />
+      </div>
+      <div class="filter-group">
+        <label for="sort">Sort by</label>
+        <select id="sort">
+          <option value="new">Newest</option>
+          <option value="stipend">Highest stipend</option>
+          <option value="deadline">Deadline soonest</option>
+        </select>
+      </div>
+      <div class="filter-group check">
+        <label><input type="checkbox" id="savedOnly" /> Show saved only</label>
+      </div>
+      <button id="reset" class="btn btn-outline full">Reset filters</button>
+    </aside>
+
+    <section class="results">
+      <p id="resultCount" class="result-count" aria-live="polite"></p>
+      <div id="grid" class="grid"></div>
+      <div id="empty" class="empty" hidden>
+        <h3>No internships found</h3>
+        <p>Try changing your search or filters.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" hidden role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-box">
+      <button class="close" id="closeModal" aria-label="Close">×</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> InternHub – Internship project. All listings are sample data.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
